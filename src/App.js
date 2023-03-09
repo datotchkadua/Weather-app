@@ -1,32 +1,24 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import TodaysWeatherPage from "./pages/TodaysWeatherPage";
+import TommorowsWeatherPage from "./pages/TommorowsWeatherPage";
+import Forecast from "./pages/Forecast";
 
 function App() {
-  const [weatherData, setWeatherData] = useState([]);
-
-  const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
- 
-
-  console.log(weatherData);
-  const fetchData = async () => {
-    axios
-      .get(
-        `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=London&aqi=no`
-      )
-      .then((res) => {
-        setWeatherData([res.data]);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-black">
-      <button className="bg-purple-400" onClick={fetchData}>
-        Fetch Data
-      </button>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<TodaysWeatherPage />} />
+        <Route path="/tommorow" element={<TommorowsWeatherPage />} />
+        <Route path="/forecast" element={<Forecast />} />
+        <Route
+          path="*"
+          element={<h1 className="text-4xl">Page not found</h1>}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
