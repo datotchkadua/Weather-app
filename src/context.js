@@ -7,7 +7,18 @@ export const useGlobalContext = () => useContext(GlobalContext);
 
 const AppContext = ({ children }) => {
   const [weatherData, setWeatherData] = useState({});
+  const [isCelsius, setIsCelsius] = useState(true);
   const [location, setLcation] = useState("Tbilisi");
+
+  const setTemperature = (name) => {
+    if (name === "0") {
+      setIsCelsius(true);
+    } else if (name === "1") {
+      setIsCelsius(false);
+    } else return;
+  };
+  console.log("contextis celsiusi ", isCelsius);
+
   const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
   const fetchData = async () => {
@@ -35,6 +46,7 @@ const AppContext = ({ children }) => {
         weatherData,
         location,
         fetchData,
+        setTemperature,
       }}
     >
       {children}

@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context";
 
 const Navbar = () => {
-  const { weatherData } = useGlobalContext();
+  const [temperatureValue, setTemperatureValue] = useState("0");
+  const { weatherData, setTemperature } = useGlobalContext();
 
+  useEffect(() => {
+    setTemperature(temperatureValue);
+  }, [temperatureValue]);
+
+  console.log("temperatureValue from Navbar",temperatureValue);
   const currentDate = weatherData?.location?.localtime;
 
   return (
@@ -17,6 +23,8 @@ const Navbar = () => {
         <div className="flex ml-14 mt-6 space-x-1 justify-center items-center">
           <h4>°C</h4>
           <input
+            value={temperatureValue}
+            onChange={(e) => setTemperatureValue(e.target.value)}
             type="range"
             className=" w-14 h-4 rounded-2xl appearance-none bg-gradient-to-r from-[#33E017] to-black   "
             min="0"
