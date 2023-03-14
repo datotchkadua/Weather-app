@@ -18,6 +18,7 @@ const AppContext = ({ children }) => {
     } else return;
   };
   console.log("contextis celsiusi ", isCelsius);
+  console.log("contextis ლოკაცია ", location);
 
   const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
@@ -45,6 +46,7 @@ const AppContext = ({ children }) => {
       value={{
         weatherData,
         location,
+        setLcation,
         fetchData,
         setTemperature,
       }}
