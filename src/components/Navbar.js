@@ -15,7 +15,7 @@ const Navbar = () => {
   const currentDate = weatherData?.location?.localtime;
 
   return (
-    <div className=" flex justify-between w-full text-white  ">
+    <div className=" flex justify-between w-full text-white mb-10 ">
       <div className="flex flex-col mr-10">
         <img src={logo} alt="logo" className="w-16 h-12 mt-2 ml-2" />
         <h1 className=" ml-14  leading-10 text-5xl">WeatherMe</h1>
@@ -33,7 +33,7 @@ const Navbar = () => {
           <h4>°F</h4>
         </div>
       </div>
-      <div className="flex flex-row space-x-9 mt-16 mr-32 text-2xl 	">
+      <nav className="flex flex-row space-x-9 mt-16 mr-32 text-2xl 	">
         <Link
           to="/"
           className="  hover:underline  underline-offset-8 hover:text-yellow-300 duration-300
@@ -53,7 +53,7 @@ const Navbar = () => {
         >
           Monthly Forecast
         </Link>
-      </div>
+      </nav>
     </div>
   );
 };

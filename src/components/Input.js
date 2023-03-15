@@ -4,7 +4,7 @@ import whiteSearchIcon from "../assets/whiteSearchIcon.svg";
 import { useGlobalContext } from "../context";
 
 const Input = () => {
-  const { location, setLcation, fetchData } = useGlobalContext();
+  const { setLcation, fetchData } = useGlobalContext();
 
   const formSubmit = (e) => {
     e.preventDefault();
@@ -12,7 +12,7 @@ const Input = () => {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mb-10">
       <form
         onSubmit={formSubmit}
         className="flex items-center w-1/3 min-w-[320px] "

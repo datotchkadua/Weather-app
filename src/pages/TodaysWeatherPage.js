@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import WeatherCard from "../components/WeatherCard";
 import Input from "../components/Input";
 
 const TodaysWeatherPage = () => {
   return (
     <>
-      <Navbar />
       <Input />
+      <WeatherCard />
     </>
   );
 };

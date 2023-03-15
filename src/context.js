@@ -6,7 +6,7 @@ const GlobalContext = createContext();
 export const useGlobalContext = () => useContext(GlobalContext);
 
 const AppContext = ({ children }) => {
-  const [weatherData, setWeatherData] = useState({});
+  const [weatherData, setWeatherData] = useState(null);
   const [isCelsius, setIsCelsius] = useState(true);
   const [location, setLcation] = useState("Tbilisi");
 
@@ -25,7 +25,7 @@ const AppContext = ({ children }) => {
   const fetchData = async () => {
     axios
       .get(
-        `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=1&aqi=no&alerts=no`
+        `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=5&aqi=no&alerts=no`
       )
       .then((res) => {
         //console.log( [res.data]);
@@ -44,6 +44,7 @@ const AppContext = ({ children }) => {
   return (
     <GlobalContext.Provider
       value={{
+        isCelsius,
         weatherData,
         location,
         setLcation,
