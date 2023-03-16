@@ -17,21 +17,22 @@ const AppContext = ({ children }) => {
       setIsCelsius(false);
     } else return;
   };
-  console.log("contextis celsiusi ", isCelsius);
-  console.log("contextis ლოკაცია ", location);
+  // console.log("contextis celsiusi ", isCelsius);
+  // console.log("contextis ლოკაცია ", location);
 
   const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
   const fetchData = async () => {
     axios
       .get(
-        `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=5&aqi=no&alerts=no`
+        `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=7&aqi=no&alerts=no`
       )
       .then((res) => {
         //console.log( [res.data]);
         setWeatherData(res.data);
       })
       .catch((err) => {
+        //aq errormsg unda shevqmna  stateti
         console.log(err);
       });
   };

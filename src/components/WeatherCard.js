@@ -4,7 +4,7 @@ import Location from "../assets/location.svg";
 import temperatureIcon from "../assets/temperature.svg";
 const WeatherCard = () => {
   const { weatherData, isCelsius } = useGlobalContext();
-  console.log(weatherData);
+  //console.log(weatherData);
   return (
     <>
       {weatherData ? (

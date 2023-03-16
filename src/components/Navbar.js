@@ -11,8 +11,8 @@ const Navbar = () => {
     setTemperature(temperatureValue);
   }, [temperatureValue]);
 
-  console.log("temperatureValue from Navbar",temperatureValue);
-  const currentDate = weatherData?.location?.localtime;
+  
+  const currentDate = weatherData?.location.localtime;
 
   return (
     <div className=" flex justify-between w-full text-white mb-10 ">
