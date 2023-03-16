@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
-
+require("dotenv").config();
 const GlobalContext = createContext();
 
 export const useGlobalContext = () => useContext(GlobalContext);
