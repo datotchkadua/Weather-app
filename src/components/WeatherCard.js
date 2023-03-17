@@ -10,12 +10,12 @@ const WeatherCard = () => {
       {weatherData ? (
         <div className=" flex justify-center  p-5 ">
           <div
-            className=" w-[50rem] h-[25rem] p-7 text-white
+            className=" w-[50rem]  p-7 text-white
        rounded-xl  relative
        bg-gradient-to-r from-[#AD36CB] to-[#333333] "
           >
             <div className="flex space-x-2 ">
-              <h1 className=" text-2xl">{`${weatherData.location.name}, ${weatherData.location.country}`}</h1>
+<h1 className=" text-2xl">{`${weatherData.location.name}, ${weatherData.location.country}`}</h1>              
               <img src={Location} alt="location" className=" w-10 h-10" />
               
             </div>
@@ -50,7 +50,7 @@ const WeatherCard = () => {
                 <p>{weatherData.current.humidity}%</p>
               </div>
               <div className="flex justify-center items-center flex-col ">
-                <h4>VISIBLITY</h4>
+                <h4>VISIBILITY</h4>
                 <p>{weatherData.current.vis_km}km</p>
               </div>
               <div className="flex justify-center items-center flex-col ">
@@ -63,6 +63,7 @@ const WeatherCard = () => {
               </div>
             </div>
           </div>
+       
         </div>
       ) : null}
     </>
