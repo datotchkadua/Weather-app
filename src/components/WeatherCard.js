@@ -2,6 +2,10 @@ import React from "react";
 import { useGlobalContext } from "../context";
 import Location from "../assets/location.svg";
 import temperatureIcon from "../assets/temperature.svg";
+import humidityImg from "../assets/humidity.png";
+import visibilityImg from "../assets/visibility.png";
+import windImg from "../assets/wind.png";
+import presureImg from "../assets/pressure.png";
 const WeatherCard = () => {
   const { weatherData, isCelsius } = useGlobalContext();
   //console.log(weatherData);
@@ -15,9 +19,8 @@ const WeatherCard = () => {
        bg-gradient-to-r from-[#AD36CB] to-[#333333] "
           >
             <div className="flex space-x-2 ">
-<h1 className=" text-2xl">{`${weatherData.location.name}, ${weatherData.location.country}`}</h1>              
+              <h1 className=" text-2xl">{`${weatherData.location.name}, ${weatherData.location.country}`}</h1>
               <img src={Location} alt="location" className=" w-10 h-10" />
-              
             </div>
 
             <div
@@ -45,25 +48,29 @@ const WeatherCard = () => {
               />
             </div>
             <div className="flex justify-around mb-5 mt-20 w-full  items-center">
-              <div className="flex justify-center items-center flex-col ">
+              <div className="flex justify-center items-center flex-col  space-y-1 ">
                 <h4>HUMIDITY</h4>
+                <img src={humidityImg} alt="" className=" w-10 h-10" />
                 <p>{weatherData.current.humidity}%</p>
               </div>
-              <div className="flex justify-center items-center flex-col ">
+              <div className="flex justify-center items-center flex-col  space-y-1 ">
                 <h4>VISIBILITY</h4>
+                <img src={visibilityImg} alt="" className=" w-10 h-10" />
                 <p>{weatherData.current.vis_km}km</p>
               </div>
-              <div className="flex justify-center items-center flex-col ">
+              <div className="flex justify-center items-center flex-col  space-y-1 ">
                 <h4>AIR PRESSURE</h4>
+                <img src={presureImg} alt="" className=" w-10 h-10" />
                 <p>{weatherData.current.pressure_mb}hPa</p>
               </div>
-              <div className="flex justify-center items-center  flex-col ">
+              
+              <div className="flex justify-center items-center  flex-col space-y-1 ">
                 <h4>WIND</h4>
+                <img src={windImg} alt="" className=" w-10 h-10" />
                 <p>{weatherData.current.wind_mph}mph</p>
               </div>
             </div>
           </div>
-       
         </div>
       ) : null}
     </>

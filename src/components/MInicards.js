@@ -17,15 +17,23 @@ const MInicards = () => {
           temp_c,
           temp_f,
         } = hourlyInfo;
-       
+
+        const date = new Date(time);
+
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const timeSuffix = hours >= 12 ? "PM" : "AM";
+        const formattedHours = hours < 10 ? "0" + hours : hours;
+        const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+        const formattedTime = formattedHours + ":" + formattedMinutes + timeSuffix;
         return (
           <MiniCard
             key={i}
-            time={time}
+            time={formattedTime}
+            conditionText={text}
             weatherIcon={icon}
             celsius={temp_c}
             fahrenheit={temp_f}
-            conditionText={text}
           />
         );
       })}

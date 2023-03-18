@@ -11,7 +11,6 @@ const Navbar = () => {
     setTemperature(temperatureValue);
   }, [temperatureValue]);
 
-  
   const currentDate = weatherData?.location.localtime;
 
   return (
@@ -51,7 +50,7 @@ const Navbar = () => {
           to="/forecast"
           className="hover:underline  underline-offset-8 hover:text-yellow-300   duration-300  "
         >
-          Monthly Forecast
+          7-Day Forecast
         </Link>
       </nav>
     </div>

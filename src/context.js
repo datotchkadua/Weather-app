@@ -6,11 +6,13 @@ const GlobalContext = createContext();
 export const useGlobalContext = () => useContext(GlobalContext);
 
 const AppContext = ({ children }) => {
- 
   const [weatherData, setWeatherData] = useState(null);
   const [isCelsius, setIsCelsius] = useState(true);
   const [location, setLcation] = useState("Tbilisi");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [isError, setIsError] = useState(false);
 
+  
   const setTemperature = (name) => {
     if (name === "0") {
       setIsCelsius(true);
@@ -18,34 +20,38 @@ const AppContext = ({ children }) => {
       setIsCelsius(false);
     } else return;
   };
-  // console.log("contextis celsiusi ", isCelsius);
-  // console.log("contextis ლოკაცია ", location);
 
   const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
   const fetchData = async () => {
-    axios
-      .get(
-        `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=7&aqi=no&alerts=no`
-      )
-      .then((res) => {
-        //console.log( [res.data]);
-        setWeatherData(res.data);
-      })
-      .catch((err) => {
-        //aq errormsg unda shevqmna  stateti
-        console.log(err);
-      });
+    if (location.trim().length > 0) {
+      axios
+        .get(
+          `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=7&aqi=no&alerts=no`
+        )
+        .then((res) => {
+          setWeatherData(res.data);
+        })
+        .catch((err) => {
+          setErrorMsg(err.response.data.error.message);
+          setIsError(true);
+          setTimeout(() => {
+            setIsError(false);
+          }, 3000);
+        });
+    } else return;
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  //console.log(weatherData);
+  
   return (
     <GlobalContext.Provider
       value={{
+        isError,
+        errorMsg,
         isCelsius,
         weatherData,
         location,
