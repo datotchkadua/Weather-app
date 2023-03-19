@@ -23,7 +23,7 @@ const TommorowsWeatherPage = () => {
         <div>
           <div className=" flex  justify-center p-5  ">
             <div
-              className=" flex justify-center w-[60rem] p-7 text-white
+              className=" flex justify-center w-[50rem] p-7 text-white
        rounded-xl  
        bg-gradient-to-r from-[#AD36CB] to-[#333333] "
             >

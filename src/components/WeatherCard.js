@@ -49,25 +49,25 @@ const WeatherCard = () => {
             </div>
             <div className="flex justify-around mb-5 mt-20 w-full  items-center">
               <div className="flex justify-center items-center flex-col  space-y-1 ">
-                <h4>HUMIDITY</h4>
                 <img src={humidityImg} alt="" className=" w-10 h-10" />
                 <p>{weatherData.current.humidity}%</p>
+                <h4>HUMIDITY</h4>
               </div>
               <div className="flex justify-center items-center flex-col  space-y-1 ">
-                <h4>VISIBILITY</h4>
                 <img src={visibilityImg} alt="" className=" w-10 h-10" />
                 <p>{weatherData.current.vis_km}km</p>
+                <h4>VISIBILITY</h4>
               </div>
               <div className="flex justify-center items-center flex-col  space-y-1 ">
-                <h4>AIR PRESSURE</h4>
                 <img src={presureImg} alt="" className=" w-10 h-10" />
                 <p>{weatherData.current.pressure_mb}hPa</p>
+                <h4>AIR PRESSURE</h4>
               </div>
-              
+
               <div className="flex justify-center items-center  flex-col space-y-1 ">
-                <h4>WIND</h4>
                 <img src={windImg} alt="" className=" w-10 h-10" />
                 <p>{weatherData.current.wind_mph}mph</p>
+                <h4>WIND</h4>
               </div>
             </div>
           </div>

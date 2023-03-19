@@ -12,7 +12,6 @@ const AppContext = ({ children }) => {
   const [errorMsg, setErrorMsg] = useState("");
   const [isError, setIsError] = useState(false);
 
-  
   const setTemperature = (name) => {
     if (name === "0") {
       setIsCelsius(true);
@@ -46,7 +45,6 @@ const AppContext = ({ children }) => {
     fetchData();
   }, []);
 
-  
   return (
     <GlobalContext.Provider
       value={{
