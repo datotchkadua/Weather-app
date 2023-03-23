@@ -20,19 +20,23 @@ const AppContext = ({ children }) => {
     } else return;
   };
 
-  const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
-
   const fetchData = async () => {
     if (location.trim().length > 0) {
+      const options = {
+        method: "GET",
+        url: "http://localhost:8000/backend",
+        params: {
+          weatherLocation: location,
+        },
+      };
       axios
-        .get(
-          `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=7&aqi=no&alerts=no`
-        )
+        .request(options)
         .then((res) => {
           setWeatherData(res.data);
         })
-        .catch((err) => {
-          setErrorMsg(err.response.data.error.message);
+        .catch((error) => {
+          setErrorMsg(error.response?.data);
+          console.log(error);
           setIsError(true);
           setTimeout(() => {
             setIsError(false);

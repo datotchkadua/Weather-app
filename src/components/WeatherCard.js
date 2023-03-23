@@ -47,7 +47,7 @@ const WeatherCard = () => {
                 className="  "
               />
             </div>
-            <div className="flex justify-around mb-5 mt-20 w-full  items-center">
+            <div className="flex flex-wrap justify-around mb-10 mt-20 w-full  items-center">
               <div className="flex justify-center items-center flex-col  space-y-1 ">
                 <img src={humidityImg} alt="" className=" w-10 h-10" />
                 <p>{weatherData.current.humidity}%</p>

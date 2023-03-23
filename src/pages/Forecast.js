@@ -6,8 +6,7 @@ import { useGlobalContext } from "../context";
 const Forecast = () => {
   const { weatherData } = useGlobalContext();
   const weeklyInfoArray = weatherData?.forecast.forecastday;
-
-  // console.log(weeklyInfoArray);
+ 
   return (
     <>
       {weatherData ? (
