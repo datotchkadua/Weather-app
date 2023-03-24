@@ -36,7 +36,7 @@ const AppContext = ({ children }) => {
         })
         .catch((error) => {
           setErrorMsg(error.response?.data);
-          console.log(error);
+
           setIsError(true);
           setTimeout(() => {
             setIsError(false);
