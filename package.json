@@ -1,5 +1,5 @@
 {
-  "homepage": "https://weather-app-datotchkadua.netlify.app/",
+  
   "name": "weather-app",
   "version": "0.1.0",
   "private": true,
@@ -19,6 +19,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    
     "start:backend": "nodemon index.js",
     "start:frontend": "react-scripts start",
     "build": "CI= react-scripts build",
