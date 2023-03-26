@@ -17,7 +17,7 @@ const Input = () => {
         <div className="flex justify-start w-full">
           {isError ? (
             <p className="bg-[#f8d7da] text-[#721c24] w-[320px] sm:w-[380px] rounded-sm text-center text-sm sm:text-md uppercase justify-center p-2 leading-6">
-              {" no matching location found" || errorMsg} !!!
+              {errorMsg} !!!
             </p>
           ) : null}
         </div>
