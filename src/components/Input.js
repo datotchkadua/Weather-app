@@ -12,16 +12,19 @@ const Input = () => {
   };
 
   return (
-    <div className="flex justify-center mb-10">
+    <div className="flex  justify-center  mb-10">
       <div className="flex flex-col justify-center items-center">
-        {isError ? (
-          <p className="bg-[#f8d7da] text-[#721c24] rounded-sm text-center text-lg uppercase justify-center p-2 leading-6">
-            {errorMsg} !!!
-          </p>
-        ) : null}
+        <div className="flex justify-start w-full">
+          {isError ? (
+            <p className="bg-[#f8d7da] text-[#721c24] w-[320px] sm:w-[380px] rounded-sm text-center text-sm sm:text-md uppercase justify-center p-2 leading-6">
+              {" no matching location found" || errorMsg} !!!
+            </p>
+          ) : null}
+        </div>
+
         <form
           onSubmit={formSubmit}
-          className="flex items-center w-[310px]  sm:min-w-[420px] mt-3"
+          className="flex items-center w-[315px]  sm:min-w-[450px] mt-3"
         >
           <div className="relative">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">

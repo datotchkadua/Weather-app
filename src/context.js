@@ -10,7 +10,7 @@ const AppContext = ({ children }) => {
   const [isCelsius, setIsCelsius] = useState(true);
   const [location, setLcation] = useState("Tbilisi");
   const [errorMsg, setErrorMsg] = useState("");
-  const [isError, setIsError] = useState(false);
+  const [isError, setIsError] = useState(true);
 
   const setTemperature = (name) => {
     if (name === "0") {
