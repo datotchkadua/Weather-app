@@ -24,7 +24,7 @@ const AppContext = ({ children }) => {
     if (location.trim().length > 0) {
       const options = {
         method: "GET",
-        url: "https://react-weather-app-59cc.onrender.com/backend",
+        url: "https://react-weather-app-datotchkadua.onrender.com",
         params: {
           weatherLocation: location,
         },

@@ -8,7 +8,7 @@ require("dotenv").config();
 const app = express();
 app.use(cors());
 
-app.get("/backend", async (req, res) => {
+app.get("/", async (req, res) => {
   const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
   const location = req.query.weatherLocation;
 
