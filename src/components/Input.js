@@ -13,7 +13,7 @@ const Input = () => {
 
   return (
     <div className="flex justify-center mb-10">
-      <div className="flex justify-center items-center">
+      <div className="flex flex-col justify-center items-center">
         {isError ? (
           <p className="bg-[#f8d7da] text-[#721c24] rounded-sm text-center text-lg uppercase justify-center p-2 leading-6">
             {errorMsg} !!!

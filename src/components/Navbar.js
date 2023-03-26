@@ -35,7 +35,6 @@ const Navbar = () => {
         <p className=" flex justify-end text-md sm:text-xl">{currentDate}</p>
         <div className="flex ml-14 mt-6 space-x-1 justify-center items-center text-xl">
           <h4>°C</h4>
-
           <input
             value={temperatureValue}
             onChange={(e) => setTemperatureValue(e.target.value)}
