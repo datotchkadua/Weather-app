@@ -6,7 +6,7 @@ import { useGlobalContext } from "../context";
 const Navbar = () => {
   const [temperatureValue, setTemperatureValue] = useState("0");
   const { weatherData, setTemperature } = useGlobalContext();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   useEffect(() => {
     setTemperature(temperatureValue);
   }, [temperatureValue]);
@@ -14,7 +14,8 @@ const Navbar = () => {
   const currentDate = weatherData?.location.localtime;
 
   const closeSidebar = () => {
-    setMenuOpen(!menuOpen);
+    
+    setIsMenuOpen(!isMenuOpen);
   };
 
   const navigation = [
@@ -30,8 +31,8 @@ const Navbar = () => {
     >
       <div className="flex justify-center flex-col mr-10">
         <img src={logo} alt="logo" className="w-16 h-12 mt-2 ml-2" />
-        <h1 className=" ml-14  leading-10 text-5xl">WeatherMe</h1>
-        <p className=" flex justify-end text-xl">{currentDate}</p>
+        <h1 className=" ml-14  leading-10 text-3xl sm:text-5xl">WeatherMe</h1>
+        <p className=" flex justify-end text-md sm:text-xl">{currentDate}</p>
         <div className="flex ml-14 mt-6 space-x-1 justify-center items-center text-xl">
           <h4>°C</h4>
 
@@ -69,7 +70,7 @@ const Navbar = () => {
         <button
           type="button"
           className={`z-50 block hamburger  focus:outline-none ${
-            menuOpen ? "" : "open"
+            isMenuOpen ? "open" : ""
           }`}
           onClick={closeSidebar}
         >
@@ -81,7 +82,7 @@ const Navbar = () => {
       <div
         className={` z-10 md:hidden absolute top-0 bottom-0 flex-col
          self-end w-full min-h-screen py-1 pt-40 pl-12 space-y-3 text-lg
-          text-white uppercase bg-black ${menuOpen ? "hidden" : "flex"}`}
+          text-white uppercase bg-black ${isMenuOpen ? "flex" : "hidden"}`}
       >
         {navigation.map((item) => (
           <NavLink

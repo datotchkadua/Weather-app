@@ -24,7 +24,7 @@ const WeatherCard = () => {
             </div>
 
             <div
-              className=" text-3xl flex h-2/5 justify-center items-center 
+              className="  flex h-2/5 justify-center items-center 
             space-x-3"
             >
               <img
@@ -32,42 +32,62 @@ const WeatherCard = () => {
                 alt="temperature"
                 className="w-5 h-12"
               />
-              <h3>
+              <h3 className="text-2xl sm:text-3xl">
                 {isCelsius
                   ? weatherData.current.temp_c + "°C"
                   : weatherData.current.temp_f + "°F"}
               </h3>
-              <h3>{`${weatherData.current.condition.text}`}</h3>
+              <h3 className=" text-2xl sm:text-3xl">{`${weatherData.current.condition.text}`}</h3>
               <img
                 src={weatherData.current.condition.icon.replace(
                   "64x64",
                   "128x128"
                 )}
                 alt=""
-                className="  "
+                className="w-16 sm:w-32  "
               />
             </div>
-            <div className="flex flex-wrap justify-around mb-10 mt-20 w-full  items-center">
-              <div className="flex justify-center items-center flex-col  space-y-1 ">
-                <img src={humidityImg} alt="" className=" w-10 h-10" />
-                <p>{weatherData.current.humidity}%</p>
-                <h4>HUMIDITY</h4>
+            <div className="flex   flex-wrap justify-around   mb-5 mt-5 pb-10   sm:mt-20 w-full  items-center">
+              <div className="flex justify-center items-center flex-col  space-y-1 m-2 ">
+                <img
+                  src={humidityImg}
+                  alt=""
+                  className="w-7 h-7 sm:w-10 sm:h-10"
+                />
+                <p className="text-xs sm:text-lg">
+                  {weatherData.current.humidity}%
+                </p>
+                <h4 className="text-xs sm:text-lg">HUMIDITY</h4>
               </div>
-              <div className="flex justify-center items-center flex-col  space-y-1 ">
-                <img src={visibilityImg} alt="" className=" w-10 h-10" />
-                <p>{weatherData.current.vis_km}km</p>
-                <h4>VISIBILITY</h4>
+              <div className="flex justify-center items-center flex-col  space-y-1 m-2 ">
+                <img
+                  src={visibilityImg}
+                  alt=""
+                  className="w-7 h-7 sm:w-10 sm:h-10"
+                />
+                <p className="text-xs sm:text-lg">
+                  {weatherData.current.vis_km}km
+                </p>
+                <h4 className="text-xs sm:text-lg">VISIBILITY</h4>
               </div>
-              <div className="flex justify-center items-center flex-col  space-y-1 ">
-                <img src={presureImg} alt="" className=" w-10 h-10" />
-                <p>{weatherData.current.pressure_mb}hPa</p>
-                <h4>AIR PRESSURE</h4>
+              <div className="flex justify-center items-center flex-col  space-y-1 m-2 ">
+                <img
+                  src={presureImg}
+                  alt=""
+                  className="w-7 h-7 sm:w-10 sm:h-10"
+                />
+                <p className="text-xs sm:text-lg">
+                  {weatherData.current.pressure_mb}hPa
+                </p>
+                <h4 className="text-xs sm:text-lg">AIR PRESSURE</h4>
               </div>
 
-              <div className="flex justify-center items-center  flex-col space-y-1 ">
-                <img src={windImg} alt="" className=" w-10 h-10" />
-                <p>{weatherData.current.wind_mph}mph</p>
-                <h4>WIND</h4>
+              <div className="flex justify-center items-center  flex-col space-y-1 m-2 ">
+                <img src={windImg} alt="" className="w-7 h-7 sm:w-10 sm:h-10" />
+                <p className="text-xs sm:text-lg">
+                  {weatherData.current.wind_mph}mph
+                </p>
+                <h4 className="text-xs sm:text-lg">WIND</h4>
               </div>
             </div>
           </div>
