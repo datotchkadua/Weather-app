@@ -2,13 +2,13 @@ import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 
 const GlobalContext = createContext();
-
+const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 export const useGlobalContext = () => useContext(GlobalContext);
 
 const AppContext = ({ children }) => {
   const [weatherData, setWeatherData] = useState(null);
   const [isCelsius, setIsCelsius] = useState(true);
-  const [location, setLcation] = useState("Tbilisi");
+  const [location, setLocation] = useState("Tbilisi");
   const [errorMsg, setErrorMsg] = useState("");
   const [isError, setIsError] = useState(false);
 
@@ -24,7 +24,7 @@ const AppContext = ({ children }) => {
     if (location.trim().length > 0) {
       const options = {
         method: "GET",
-        url: "https://react-weather-app-datotchkadua.onrender.com",
+        url: `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=3&aqi=no&alerts=no`,
         params: {
           weatherLocation: location,
         },
@@ -33,9 +33,12 @@ const AppContext = ({ children }) => {
         .request(options)
         .then((res) => {
           setWeatherData(res.data);
+         
+
         })
         .catch((error) => {
-          setErrorMsg(error.response?.data);
+          console.log(error)
+          setErrorMsg(error?.message || "Something went wrong...");
 
           setIsError(true);
           setTimeout(() => {
@@ -47,6 +50,7 @@ const AppContext = ({ children }) => {
 
   useEffect(() => {
     fetchData();
+  
   }, []);
 
   return (
@@ -57,7 +61,7 @@ const AppContext = ({ children }) => {
         isCelsius,
         weatherData,
         location,
-        setLcation,
+        setLocation,
         fetchData,
         setTemperature,
       }}
