@@ -4,7 +4,8 @@ import whiteSearchIcon from "../assets/whiteSearchIcon.svg";
 import { useGlobalContext } from "../context";
 
 const Input = () => {
-  const { setLocation,location, fetchData, errorMsg, isError } = useGlobalContext();
+  const { setLocation, location, fetchData, errorMsg, isError } =
+    useGlobalContext();
 
   const formSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +34,8 @@ const Input = () => {
 
             <input
               onChange={(e) => setLocation(e.target.value)}
-              value={location}
+              defaultValue={location}
+              name="location"
               type="text"
               className="bg-gray-50 border border-gray-300
              text-gray-900 text-lg rounded-lg 

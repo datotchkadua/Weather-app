@@ -33,13 +33,11 @@ const AppContext = ({ children }) => {
         .request(options)
         .then((res) => {
           setWeatherData(res.data);
-         
-
         })
         .catch((error) => {
-          console.log(error)
-          setErrorMsg(error?.message || "Something went wrong...");
 
+    
+          setErrorMsg(error?.message || "Something went wrong...");
           setIsError(true);
           setTimeout(() => {
             setIsError(false);
@@ -50,7 +48,6 @@ const AppContext = ({ children }) => {
 
   useEffect(() => {
     fetchData();
-  
   }, []);
 
   return (

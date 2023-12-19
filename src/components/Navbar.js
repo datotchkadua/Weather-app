@@ -7,6 +7,7 @@ const Navbar = () => {
   const [temperatureValue, setTemperatureValue] = useState("0");
   const { weatherData, setTemperature } = useGlobalContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   useEffect(() => {
     setTemperature(temperatureValue);
   }, [temperatureValue]);
@@ -14,13 +15,12 @@ const Navbar = () => {
   const currentDate = weatherData?.location.localtime;
 
   const closeSidebar = () => {
-    
     setIsMenuOpen(!isMenuOpen);
   };
 
   const navigation = [
     { name: "Today", to: "/" },
-    { name: "Tommorow", to: "/tommorow" },
+    { name: "Tomorrow", to: "/tomorrow" },
     { name: "3-Day Forecast", to: "/forecast" },
   ];
 
@@ -79,7 +79,7 @@ const Navbar = () => {
         </button>
       </div>
       <div
-        className={` z-10 md:hidden absolute top-0 bottom-0 flex-col
+        className={` z-10 md:hidden fixed top-0 bottom-0 flex-col
          self-end w-full min-h-screen py-1 pt-40 pl-12 space-y-3 text-lg
           text-white uppercase bg-black ${isMenuOpen ? "flex" : "hidden"}`}
       >

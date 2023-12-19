@@ -8,11 +8,11 @@ import windImg from "../assets/wind.png";
 import MiniCard from "../components/Minicard";
 import { useGlobalContext } from "../context";
 
-const TommorowsWeatherPage = () => {
+const TomorrowsWeatherPage = () => {
   const { weatherData, isCelsius } = useGlobalContext();
-  const tommorow = weatherData?.forecast.forecastday[1];
+  const tomorrow = weatherData?.forecast.forecastday[1];
 
-  const epoch = tommorow?.date_epoch;
+  const epoch = tomorrow?.date_epoch;
   const date = new Date(epoch * 1000);
   const dateString = date.toString().slice(0, 10);
 
@@ -30,9 +30,7 @@ const TommorowsWeatherPage = () => {
                 <h1 className=" text-3xl mr-8">{`${weatherData.location.name}, ${weatherData.location.country}`}</h1>
                 <h1 className="text-xl ">{dateString}</h1>
               </div>
-              {/* amis zemot mtavari amindi */}
 
-              {/*  */}
               <div className=" p-4 ml-5 ">
                 <div
                   className=" text-lg sm:text-3xl flex my-5 justify-center items-center 
@@ -45,10 +43,10 @@ const TommorowsWeatherPage = () => {
                   />
                   <h3>
                     {isCelsius
-                      ? tommorow.day.avgtemp_c + "°C"
-                      : tommorow.day.avgtemp_f + "°F"}
+                      ? tomorrow.day.avgtemp_c + "°C"
+                      : tomorrow.day.avgtemp_f + "°F"}
                   </h3>
-                  <h3>{`${tommorow.day.condition.text}`}</h3>
+                  <h3>{`${tomorrow.day.condition.text}`}</h3>
                   <img
                     src={weatherData.current.condition.icon.replace(
                       "64x64",
@@ -63,23 +61,21 @@ const TommorowsWeatherPage = () => {
                     <h4>LOWEST</h4>
                     <h4>
                       {isCelsius
-                        ? tommorow.day.mintemp_c + "°C"
-                        : tommorow.day.mintemp_f + "°F"}
+                        ? tomorrow.day.mintemp_c + "°C"
+                        : tomorrow.day.mintemp_f + "°F"}
                     </h4>
                   </div>
                   <div className="flex flex-col   ">
                     <h4>HIGHEST</h4>
                     <h4>
                       {isCelsius
-                        ? tommorow.day.maxtemp_c + "°C"
-                        : tommorow.day.maxtemp_f + "°F"}
+                        ? tomorrow.day.maxtemp_c + "°C"
+                        : tomorrow.day.maxtemp_f + "°F"}
                     </h4>
                   </div>
                 </div>
 
                 <div className="flex flex-wrap justify-center  items-center  space-x-5 sm:space-x-10 mt-5 text-xl ">
-                  {/*  */}
-
                   <div className="flex-col justify-center items-center text-center mt-2  space-y-2 ">
                     <img
                       src={sunrise}
@@ -87,7 +83,7 @@ const TommorowsWeatherPage = () => {
                       className="w-7 h-7 sm:w-10 sm:h-10"
                     />
                     <h4 className="text-xs sm:text-lg">
-                      {tommorow.astro.sunrise}
+                      {tomorrow.astro.sunrise}
                     </h4>
                   </div>
                   <div className="flex-col justify-center items-center text-center mt-2  space-y-2">
@@ -97,7 +93,7 @@ const TommorowsWeatherPage = () => {
                       className="w-7 h-7 sm:w-10 sm:h-10"
                     />
                     <h4 className="text-xs sm:text-lg">
-                      {tommorow.astro.sunset}
+                      {tomorrow.astro.sunset}
                     </h4>
                   </div>
 
@@ -109,7 +105,7 @@ const TommorowsWeatherPage = () => {
                       className="w-7 h-7 sm:w-10 sm:h-10"
                     />
                     <h4 className="text-xs sm:text-lg">
-                      {tommorow.day.avghumidity}%
+                      {tomorrow.day.avghumidity}%
                     </h4>
                   </div>
                   <div className="flex flex-col justify-center items-center mt-2 space-y-2">
@@ -119,7 +115,7 @@ const TommorowsWeatherPage = () => {
                       className="w-7 h-7 sm:w-10 sm:h-10"
                     />
                     <h4 className="text-xs sm:text-lg">
-                      {tommorow.day.avgvis_km}km
+                      {tomorrow.day.avgvis_km}km
                     </h4>
                   </div>
                   <div className="flex flex-col justify-center items-center mt-2 space-y-2">
@@ -129,7 +125,7 @@ const TommorowsWeatherPage = () => {
                       className="w-7 h-7 sm:w-10 sm:h-10"
                     />
                     <h4 className="text-xs sm:text-lg">
-                      {tommorow.day.maxwind_mph}mph
+                      {tomorrow.day.maxwind_mph}mph
                     </h4>
                   </div>
                 </div>
@@ -137,7 +133,7 @@ const TommorowsWeatherPage = () => {
             </div>
           </div>
           <div className="flex justify-center flex-wrap mb-10 w-full">
-            {tommorow.hour
+            {tomorrow.hour
               .filter((_, i) => i % 3 === 0)
               .map((hourlyInfo, i) => {
                 const {
@@ -173,4 +169,4 @@ const TommorowsWeatherPage = () => {
   );
 };
 
-export default TommorowsWeatherPage;
+export default TomorrowsWeatherPage;

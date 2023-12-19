@@ -6,8 +6,7 @@ const MInicards = () => {
   const { weatherData } = useGlobalContext();
   const hourlyInfoArray = weatherData?.forecast.forecastday[0].hour;
   const filteredHourlyInfo = hourlyInfoArray?.filter((_, i) => i % 3 === 0);
-  //console.log(hourlyInfoArray);
-  //console.log(filteredHourlyInfo);
+
   return (
     <div className="flex justify-center flex-wrap mb-10 w-full">
       {filteredHourlyInfo?.map((hourlyInfo, i) => {
@@ -25,7 +24,8 @@ const MInicards = () => {
         const timeSuffix = hours >= 12 ? "PM" : "AM";
         const formattedHours = hours < 10 ? "0" + hours : hours;
         const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
-        const formattedTime = formattedHours + ":" + formattedMinutes + timeSuffix;
+        const formattedTime =
+          formattedHours + ":" + formattedMinutes + timeSuffix;
         return (
           <MiniCard
             key={i}
